@@ -1,1 +1,72 @@
-<!-- Getting started with Schema.org using Microdata -->
+<!-- 
+  Document Type Declaration (DTD)  - This declartion helps web browsers interpret the HTML code correctly
+  If doctype is not defined, the browser will run on quirks mode. 
+-->
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+
+      <!-- 
+        By adding itemscope, you are specifying that the HTML contained in the <div>...</div> block is about a particular item.
+
+       -->
+      <section itemscope>
+
+        <article itemscope itemtype="https://schema.org/Movie">
+          <h2 itemprop="name">Forest Gump</h2>
+          <div itemprop="director" itemscope itemtype="https://schema.org/Person">
+            <!-- 
+              Dates and times can be difficult for machines to understand. Consider the date "04/01/11". Does it mean January 11, 2004? January 4, 2011? Or April 1, 2011? 
+              To make dates unambiguous, use the time tag along with the datetime attribute. The value of the datetime attribute is the date specified using YYYY-MM-DD format. 
+              The HTML code below specifies the date unambiguously as April 1, 2011. You can also specify a time within a day, using the hh:mm:ss format. 
+             -->
+            Director: <span itemprop="name">Robert Zemeckis</span> (born <time datetime="1952-05-14T19:40" itemprop="birthDate">7:40 PM May 14, 1952 </time>)
+          </div>
+          <span itemprop="genre">Comedy drama</span>
+          <!-- 
+            Also, durations can be specified in an analogous way using the time tag with the datetime attribute. Durations are prefixed with the letter P (stands for period). 
+          -->
+          <time itemprop="duration" datetime="PT1H30M"></time>
+          <a href="/movies/avatar-theatrical-trailer-html" itemprop="trailer">Trailer</a>
+        </article>
+
+      </section>
+
+
+      <!-- 
+        Canonical references - Links to 3rd party sites can help search engines to better understand the item you are describing on your web page.
+        However, you might not want to add a visible link on your page. In this case, you can use a link element instead. 
+       -->
+      <section itemscope>
+        <article itemscope itemtype="https://schema.org/Book">
+          <span itemprop="name">The Catcher in the Rye</span>—
+          <link itemprop="url" href="http://en.wikipedia.org/wiki/The_Catcher_in_the_Rye" />
+          by <span itemprop="author">J.D. Salinger</span>
+        </article>
+      </section>
+
+
+      <!-- 
+        Sometimes, a web page has information that would be valuable to mark up, but the information can't be marked up because of the way it appears on the page. 
+        The information may be conveyed in an image (for example, an image used to represent a rating of 4 out of 5) or a Flash object (for example, the duration of a video clip), 
+        or it may be implied but not stated explicitly on the page (for example, the currency of a price). In these cases, use the meta tag along with the content attribute to 
+        specify the information.
+        This technique should be used sparingly. Only use meta with content for information that cannot otherwise be marked up.
+       -->
+      <div itemscope itemtype="https://schema.org/Offer">
+        <span itemprop="name">Blend-O-Matic</span>
+        <span itemprop="price">$19.-95</span>
+        <div itemprop="reviews" itemscope itemtype="https://schema.org/AggregateRating">
+          <img src="four-stars.jpg" alt="Five stars in a row out of which four of them are coloured to indicate that the rating is 4 out of 5">
+          <meta itemprop="ratingValue" content="4"  />
+          <meta itemprop="bestRating" content="5"/>
+          Based on <span itemprop="ratingCount">25</span> user ratings
+        </div>
+      </div>
+
+
+    </body>
+
+</html>
