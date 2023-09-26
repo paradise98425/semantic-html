@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<!-- 
+  A semantic element clearly describes its meaning to both the browswer and the developer.
+  Example of non-semantic elements: <div> and <span> - Tells nothing about its content
+  Example of semantic elements : <form>, <table> and <article> - Clearly defines its content
+
+    |---------------------------------------------------------------|
+    |                                                               |
+    |                      <header>                                 |
+    |---------------------------------------------------------------|
+    |                                                               |
+    |                      <nav>                                    |
+    |---------------------------------------------------------------|
+    |                                            |                  |
+    |                                            |                  |
+    |                                            |                  |
+    |                                            |                  |
+    |                <section>                   |                  |
+    |                                            |                  |
+    |                                            |                  |
+    |                                            |   <aside>        |
+    |--------------------------------------------|                  |
+    |                                            |                  |
+    |                                            |                  |
+    |               <article>                    |                  |
+    |                                            |                  |
+    |                                            |                  |
+    |                                            |                  |
+    -----------------------------------------------------------------
+    |                                                               |
+    |                   <footer>                                    |
+    |---------------------------------------------------------------|
+ -->
+
+<html>
+  <body>
+
+    <aside>
+      <!-- make the sidebar naviagation or something like.  -->
+    </aside>
+
+    <main>
+      <!-- 
+        Section :: According to W3C's HTML documentation: "A section is a thematic grouping of content, typically with a heading"
+        Section is typically used to divide a webpage into different sections or chapters, such as headers, footers, sidebars, and the main content area. Also,
+        section does not necessarily imply that the content it contains is self-contained or can stand alone. 
+      -->
+      <section itemscope itemtype="https://schema.org/Organization">
+        <h1 itemprop="name">WWF</h1>
+        <p itemprop="description">
+          The World Wide Fund for Nature (WWF) is an international organization working on issues regarding the conservation, research and restortation of the
+          environment, formerly named the World Wildlife Fund. WWF was founded in 1961. 
+        </p>
+      </section>
+
+      <!-- 
+        Article :: The <article> element specifies independent, self-contained content. 
+        An article should make sense on its own, and it should be possible to distribute it independently from the rest of the website. 
+      -->
+      <article itemscope itemtype="https://schema.org/Thing">
+        <h1 itemprop="name">Google Chrome</h1>
+        <details>
+          <summary>World's most popular web browser</summary>
+          <p itemprop="description">
+            Google Chrome is a web browser developed by Google, <mark>released in 2008 </mark>. Chrome is the world's most popular web browser today! 
+          </p>
+        </details>
+      </article>
+
+      <!-- 
+        <figure> and <figcaption> :::
+          <figure>  - The <figure> tag specifies self-contained content, like illustrations, diagram, photos, code listings, etc. 
+          <figcaption> - The <figcaption> tag defines a caption for a <figure> element. The <figcaption> element can be placed as the first or 
+              as the last child of a <figure> element.
+      -->
+      <figure>
+        <img src="pic_trulli.jpg" alt="Trulli">
+        <figcaption>Fig1. - Trulli, Puglia, Italy.</figcaption>
+      </figure>
+    </main>
+
+  </body>
+</html>
